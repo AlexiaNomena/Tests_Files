@@ -1,3 +1,7 @@
+"""
+import sys, scipy, numpy; print(scipy.__version__, numpy.__version__, sys.version_info)
+#1.7.3 1.21.5 sys.version_info(major=3, minor=10, micro=4, releaselevel='final', serial=0)
+"""
 import pdb
 import numpy as np
 import scipy.linalg as splinalg
