@@ -1,7 +1,7 @@
+import pdb
 import numpy as np
 import scipy.linalg as splinalg
 import pickle
-import pdb
 
 f = open("test_array.pck", "rb")
 M = pickle.load(f)["M"] 
