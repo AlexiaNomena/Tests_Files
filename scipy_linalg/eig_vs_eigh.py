@@ -5,7 +5,6 @@ import sys, scipy, numpy; print(scipy.__version__, numpy.__version__, sys.versio
 import pdb
 import numpy as np
 import scipy.linalg as splinalg
-import pickle
 
 M = np.loadtxt("test_array.txt")
 
