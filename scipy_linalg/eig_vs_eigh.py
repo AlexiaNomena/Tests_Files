@@ -48,8 +48,8 @@ gMc = Uc.dot(SSc2.dot(splinalg.inv(Uc)))
 
 
 print("Gram matrices are the same:", np.all(np.isclose(Gram,Gramc))) # False
-print("sp.linalg.eigh recovers M (orthogonal eigenvectors):", np.all(np.isclose(Gram, M))) # True
-print("sp.linalg.eig recovers M (orthogonal eigenvectors):", np.all(np.isclose(M, Gramc))) # False
+print("sp.linalg.eigh recovers M (iff orthogonal eigenvectors):", np.all(np.isclose(Gram, M))) # True
+print("sp.linalg.eig recovers M (iff orthogonal eigenvectors):", np.all(np.isclose(M, Gramc))) # False
 print("sp.linalg.eig recovers M (general decomposition):", np.all(np.isclose(M, gMc)))
 
 
