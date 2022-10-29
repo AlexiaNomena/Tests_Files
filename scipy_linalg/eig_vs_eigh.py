@@ -35,16 +35,21 @@ print("eigh eigenvalues", E)
 
 ### Recovering M from Eigendecomposition ####
 SS = np.sqrt(np.diag(E)) 
-tX0 = np.real(U.dot(SS))
+tX0 = U.dot(SS)#np.real(U.dot(SS))
 Gram = tX0.dot(tX0.T)
         
 SSc = np.sqrt(np.diag(Ec)) 
-tX0c = np.real(Uc.dot(SSc))
+tX0c = Uc.dot(SSc) #np.real(Uc.dot(SSc))
 Gramc = tX0c.dot(tX0c.T)
 
-print("Gram matrices are the same:", np.all(np.isclose(Gram,Gramc))) # False
-print("sp.linalg.eigh recovers M:", np.all(np.isclose(Gram, M))) # True
-print("sp.linalg.eig recovers M:", np.all(np.isclose(M, Gramc))) # False
+### Test general decomposition ###
+SSc2 = np.diag(Ec)
+gMc = Uc.dot(SSc2.dot(splinalg.inv(Uc)))
 
+
+print("Gram matrices are the same:", np.all(np.isclose(Gram,Gramc))) # False
+print("sp.linalg.eigh recovers M (orthogonal eigenvectors):", np.all(np.isclose(Gram, M))) # True
+print("sp.linalg.eig recovers M (orthogonal eigenvectors):", np.all(np.isclose(M, Gramc))) # False
+print("sp.linalg.eig recovers M (general decomposition):", np.all(np.isclose(M, gMc)))
 
 
