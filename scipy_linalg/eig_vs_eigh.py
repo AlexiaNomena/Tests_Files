@@ -19,13 +19,13 @@ Ec, Uc = splinalg.eig(M) ### eigendecomposition for general matrices
 sortc = False   
 
 if sort:
-	E = np.real(E) # remove tiny imaginary parts (because in fact M is positive semi-definite)
+	E = np.real(E) # remove tiny imaginary parts (symmetric matrices have real eigenvalues)
 	sort = np.argsort(E)[::-1] # descending order
 	E = E[sort]
 	U = U[:, sort]
 	print("All eigenvalues are equal:", np.all(np.isclose(E, Ec))) # True
 if sortc:
-	Ec = np.real(E) # remove tiny imaginary parts (because in fact M is positive semi-definite)
+	Ec = np.real(E) # remove tiny imaginary parts (symmetric matrices have real eigenvalues)
 	sortc = np.argsort(Ec)[::-1] # descending order
 	Ec = Ec[sortc]
 	Uc = Uc[:, sortc]
